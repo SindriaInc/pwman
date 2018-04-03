@@ -1,1 +1,1 @@
-# pwman
+# sindria-pwman
