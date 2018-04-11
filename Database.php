@@ -17,10 +17,10 @@ class Database {
     }
     public static function init() {
         Database::$config = [
-            'DB_HOST' => '127.0.0.1',
-            'DB_USER' => 'sitex',
-            'DB_PASS' => 'sindriadb',
-            'DB_NAME' => 'pwman.sindria.org'
+            'DB_HOST' => 'localhost',
+            'DB_USER' => 'pwman',
+            'DB_PASS' => 'secret',
+            'DB_NAME' => 'pwman'
         ];
     }
     /**
