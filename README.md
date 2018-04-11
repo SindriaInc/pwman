@@ -1,3 +1,3 @@
-# sindria-pwman
+# pwman
 
-A simple CLI password manager written in C. 
+A simple and secure CLI password manager written in PHP7. - Develop by Sindria Inc. 
