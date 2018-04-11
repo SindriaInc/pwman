@@ -19,11 +19,11 @@ class Lang {
     }
 
     private function _getStaticTranslator() {
-        return file_get_contents('./' . $this->_language . '.mess');
+        return file_get_contents('locale/' . $this->_language . '.mess');
     }
 
     private function _getDynamicTranslator(){
-        $_fileContentArray = file('./' . $this->_language . '.lang');
+        $_fileContentArray = file('locale/' . $this->_language . '.lang');
         array_walk($_fileContentArray, function(&$item){$item = explode("|.|", $item);});
         var_dump($_fileContentArray);
         return $_fileContentArray;
