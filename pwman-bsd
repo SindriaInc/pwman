@@ -1,0 +1,28 @@
+#!/usr/local/bin/php
+<?php
+
+/**
+ * Entry point. You shall not pass!!!
+ */
+
+/*
+ * Autoload classes
+ *
+ * @author Luca Pitzoi <luca.pitzoi@sindria.org>
+ */
+spl_autoload_register(function ($class) {
+    include './' . $class . '.php';
+});
+
+
+Bootstrap::loader();
+
+
+
+
+
+
+
+
+
+?>

@@ -71,4 +71,8 @@ Class Main {
 
     }
 
+    public function auth() {
+        //TODO funzione di autenticazione
+    }
+
 }
