@@ -18,7 +18,7 @@ Class Main {
      */
     public static $username;
     public static $pin;
-    public static $email
+    public static $email;
     public static $lang;
     
 
