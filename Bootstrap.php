@@ -25,6 +25,8 @@ class Bootstrap {
 
     }
 
+    // L'idea dello slaveMessage e' di creare l'animazione di caricamento uguale a quella di FreeBSD
+
     /* public function slaveMessage($string) {
         for ($i=0; $i<=10; $i++) {
             echo substr($string, 0, $string[j]);

@@ -28,8 +28,8 @@ class Game extends Model {
     private $password;
     private $type;
     private $description;
-    private $updated_at;
     private $created_at;
+    private $updated_at;
 
     public static function find ($email) {
         $result = \Database::query("SELECT * FROM " . User::$table . " WHERE email=?;", "s", $email);
@@ -44,8 +44,8 @@ class Game extends Model {
         $game->password = $row['pin'];
         $game->type = $row['type'];
         $game->description = $row['description'];
-        $game->updated_at = $row['updated_at'];
         $game->created_at = $row['created_at'];
+        $game->updated_at = $row['updated_at'];
         return $game;
     }
 

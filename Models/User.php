@@ -15,7 +15,6 @@ class User extends Model {
     * @var int
     * @var string
     * @var string
-    * @var int
     * @var timestamp
     * @var timestamp 
     *
@@ -25,9 +24,8 @@ class User extends Model {
     private $username;
     private $email;
     private $pin;
-    private $role_id;
-    private $updated_at;
     private $created_at;
+    private $updated_at;
 
     public static function find ($email) {
         $result = \Database::query("SELECT * FROM " . User::$table . " WHERE email=?;", "s", $email);
@@ -40,9 +38,8 @@ class User extends Model {
         $user->username = $row['username'];
         $user->email = $row['email'];
         $user->password = $row['pin'];
-        $user->role_id = $row['role_id'];
-        $user->updated_at = $row['updated_at'];
         $user->created_at = $row['created_at'];
+        $user->updated_at = $row['updated_at'];
         return $user;
     }
 

@@ -13,11 +13,14 @@ Class Main {
      * @var string
      * @var string
      * @var string
+     * @var string
      *
      */
     public static $username;
     public static $pin;
+    public static $email
     public static $lang;
+    
 
     public static function settings() {
 
@@ -60,10 +63,14 @@ Class Main {
 
         echo $_translator->getGreetings() . "\n\n";
 
+        //TODO aggiungere una validazione dei dati
+
         echo $_translator->translate("how you want to be called?") . "\n";
         Main::$username = @trim(fgets(STDIN));
         echo $_translator->translate("Good, now insert your pin") . "\n";
         Main::$pin = @trim(fgets(STDIN));
+        echo $_translator->translate("Please specify your email") . "\n";
+        Main::$email = @trim(fgets(STDIN));
         Main::$lang = $choice;
 
         //TODO salvare i dati nel DB
