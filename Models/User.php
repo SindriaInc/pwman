@@ -15,6 +15,7 @@ class User extends Model {
     * @var int
     * @var string
     * @var string
+    * @var string
     * @var timestamp
     * @var timestamp 
     *
@@ -24,6 +25,7 @@ class User extends Model {
     private $username;
     private $email;
     private $pin;
+    private $lang;
     private $created_at;
     private $updated_at;
 
@@ -38,6 +40,7 @@ class User extends Model {
         $user->username = $row['username'];
         $user->email = $row['email'];
         $user->password = $row['pin'];
+        $user->lang = $row['lang'];
         $user->created_at = $row['created_at'];
         $user->updated_at = $row['updated_at'];
         return $user;

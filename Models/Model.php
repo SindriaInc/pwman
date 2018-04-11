@@ -11,6 +11,6 @@ class Model {
     //TODO classe master dei model
 
 
-    //TODO aggiungere il metodo save()
+    //TODO aggiungere il metodo save() e destroy()
 }
 
