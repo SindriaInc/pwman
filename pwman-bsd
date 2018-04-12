@@ -11,6 +11,9 @@
  * @author Luca Pitzoi <luca.pitzoi@sindria.org>
  */
 spl_autoload_register(function ($class) {
+	if(strpos($class, '\\') !== false){
+		$class = str_replace("\\", '/', $class);
+	}
     include './' . $class . '.php';
 });
 
