@@ -1,26 +1,14 @@
 <?php
 
+use Models\User;
+use Models\Game;
+
 /**
+ * 
  * Class Main
  *
  */
-
 Class Main {
-
-    /**
-     * User property
-     *
-     * @var string
-     * @var string
-     * @var string
-     * @var string
-     *
-     */
-    public static $username;
-    public static $pin;
-    public static $email;
-    public static $lang;
-    
 
     public static function settings() {
 
@@ -63,23 +51,63 @@ Class Main {
 
         echo $_translator->getGreetings() . "\n\n";
 
-        //TODO aggiungere una validazione dei dati
+        $user = new User();
 
         echo $_translator->translate("how you want to be called?") . "\n";
-        Main::$username = @trim(fgets(STDIN));
+        $user->username = @trim(fgets(STDIN));
         echo $_translator->translate("Good, now insert your pin") . "\n";
-        Main::$pin = @trim(fgets(STDIN));
+        echo "\033[30;40m"; // black text on black background
+        $user->pin = @trim(fgets(STDIN));
+        echo "\033[0m";      // reset
         echo $_translator->translate("Please specify your email") . "\n";
-        Main::$email = @trim(fgets(STDIN));
-        Main::$lang = $choice;
+        $user->email = @trim(fgets(STDIN));
+        $user->lang = $choice;
+
+        //TODO aggiungere una validazione dei dati
 
         //TODO salvare i dati nel DB
+        //$user->save();
 
 
     }
 
     public function auth() {
-        //TODO funzione di autenticazione
+
+        /**
+        * 
+        * @var string
+        * @var string
+        * 
+        */
+        $emailAuth;
+        $pinAuth;
+
+        echo "PWMAN Login System\n\n";
+
+        echo "Email: ";
+        $emailAuth = @trim(fgets(STDIN));
+        echo "\n";
+        echo "Pin: ";
+        echo "\033[30;40m"; // black text on black background
+        $pinAuth = @trim(fgets(STDIN));
+        echo "\033[0m";      // reset
+        echo "\n";
+
+        $user = User::find($emailAuth);
+
+        if ($user == NULL) {
+            echo "Login fail user null";
+            return;
+        }
+
+
+        $valid = password_verify($pinAuth, $user->getPin());
+
+        if (!$valid) {
+            echo "Login fail";
+            return;
+        }
+        echo "Login success";
     }
 
 }

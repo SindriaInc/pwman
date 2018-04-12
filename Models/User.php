@@ -20,17 +20,17 @@ class User extends Model {
     * @var timestamp 
     *
     */
-    private static $table = "users";
-    private $id;
-    private $username;
-    private $email;
-    private $pin;
-    private $lang;
-    private $created_at;
-    private $updated_at;
+    public static $table = "users";
+    public $id;
+    public $username;
+    public $email;
+    public $pin;
+    public $lang;
+    public $created_at;
+    public $updated_at;
 
     public static function find ($email) {
-        $result = \Database::query("SELECT * FROM " . User::$table . " WHERE email=?;", "s", $email);
+        $result = \Database::query("SELECT * FROM " . User::$table . " WHERE email=?;", "s", [$email]);
         if ($result->num_rows == 0 ) {
             return NULL;
         }
@@ -39,7 +39,7 @@ class User extends Model {
         $user->id = $row['id'];
         $user->username = $row['username'];
         $user->email = $row['email'];
-        $user->password = $row['pin'];
+        $user->pin = $row['pin'];
         $user->lang = $row['lang'];
         $user->created_at = $row['created_at'];
         $user->updated_at = $row['updated_at'];

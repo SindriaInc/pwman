@@ -25,7 +25,7 @@ class Lang {
     private function _getDynamicTranslator(){
         $_fileContentArray = file('locale/' . $this->_language . '.lang');
         array_walk($_fileContentArray, function(&$item){$item = explode("|.|", $item);});
-        var_dump($_fileContentArray);
+        //var_dump($_fileContentArray);
         return $_fileContentArray;
         //stringa lingua base|.|stringa lingua che voglio
     }

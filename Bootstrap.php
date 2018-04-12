@@ -9,7 +9,7 @@ class Bootstrap {
 
         Bootstrap::message();
         Main::settings();
-
+        Main::auth();
     }
 
     public function message() {
@@ -17,7 +17,7 @@ class Bootstrap {
         echo "\n\n";
         echo "PWMAN is starting";
         //Bootstrap::slaveMessage("PWMAN is starting");
-        for ($i=0; $i<=7; $i++) {
+        for ($i=0; $i<=2; $i++) {
             echo ".";
             sleep(1);
         }
